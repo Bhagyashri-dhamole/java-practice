@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class AnagramCheck
+{
+	public static void main(String[] args) {
+		Scanner Sc = new Scanner(System.in);
+		String s1 = Sc.nextLine().toLowerCase();
+		String s2 = Sc.nextLine().toLowerCase();
+		if(s1.length() != s2.length())
+		{
+			System.out.println("not anagram");
+			return;
+		}
+		int count[] = new int[26];
+		for(int i = 0;i < s1.length();i++)
+		{
+			count[s1.charAt(i)-'a']++;
+			count[s2.charAt(i)-'a']--;
+		}
+		for(int i:count)
+		{
+			if(i != 0)
+			{
+				System.out.println("not anagram");
+				return;
+			}
+		}
+		System.out.println("anagram");
+
+	}
+}
